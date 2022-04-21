@@ -1,10 +1,10 @@
 package proj2spr22;
 
-public class Heap {
+public class ChildHeap {
 	   private Comparable[] heapArray;
 	   private int heapSize;
 
-	   public Heap() {
+	   public ChildHeap() {
 	      heapArray = new Comparable[2];
 	      heapSize = 0;
 	   }
