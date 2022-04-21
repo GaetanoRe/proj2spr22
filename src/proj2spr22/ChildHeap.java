@@ -1,5 +1,13 @@
 package proj2spr22;
-
+/**
+ * <p>Title: ChildHeap
+ * 
+ * <p>Description: A Max Heap that can only contain the
+ * Info for the Children entering roller hockey. Disclaimer: most
+ * of the code was copied from the textbook, but was modified to fit this project.
+ * @author Gaetano Re
+ *
+ */
 public class ChildHeap {
 	   private Comparable[] heapArray;
 	   private int heapSize;
@@ -98,7 +106,7 @@ public class ChildHeap {
 		   int maxValue = heapArray[0];
 		       
 		   // Move the last item in the array into index 0.
-		   int replaceValue = heapArray[heapSize - 1];
+		   int replaceValue = ;
 		   heapSize--;
 		   if (heapSize > 0) {
 		      heapArray[0] = replaceValue;
