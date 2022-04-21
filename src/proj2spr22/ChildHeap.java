@@ -9,17 +9,17 @@ package proj2spr22;
  *
  */
 public class ChildHeap {
-	   private Comparable[] heapArray;
+	   private Child[] heapArray;
 	   private int heapSize;
 
 	   public ChildHeap() {
-	      heapArray = new Comparable[2];
+	      heapArray = new Child[2];
 	      heapSize = 0;
 	   }
 
 	   private void resizeArray() {
 	      int newLength = heapArray.length * 2;
-	      Comparable[] newArray = new Comparable[newLength];
+	      Child[] newArray = new Child[newLength];
 	      if (newArray != null) {
 	         // Copy from existing array to new array
 	         for (int i = 0; i < heapArray.length; i++) {
@@ -37,13 +37,13 @@ public class ChildHeap {
 		      int parentIndex = (nodeIndex - 1) / 2;
 		            
 		      // Check for a violation of the max heap property
-		      if (heapArray[nodeIndex].compareTo(heapArray[parentIndex]) == 0 || heapArray[nodeIndex].compareTo(heapArray[parentIndex]) == -1 ) {
+		      if (heapArray[nodeIndex].compareTo(heapArray[parentIndex]) == 0 || heapArray[nodeIndex].compareTo(heapArray[parentIndex]) == -1) {
 		         // No violation, so percolate up is done.
 		         return;
 		      }
 		      else {
 		         // Swap heapArray[nodeIndex] and heapArray[parentIndex]
-		         Comparable temp = heapArray[nodeIndex];
+		         Child temp = heapArray[nodeIndex];
 		         heapArray[nodeIndex] = heapArray[parentIndex];
 		         heapArray[parentIndex] = temp;
 		                
@@ -53,17 +53,17 @@ public class ChildHeap {
 		   }
 		}
 	   
-	   void percolateDown(int nodeIndex) {
+	   public void percolateDown(int nodeIndex) {
 		   int childIndex = 2 * nodeIndex + 1;
-		   int value = heapArray[nodeIndex];
+		   Child value = heapArray[nodeIndex];
 
 		   while (childIndex < heapSize) {
 		      // Find the max among the node and all the node's children
-		      int maxValue = value;
+		      Child maxValue = value;
 		      int maxIndex = -1;
 		      int i = 0;
 		      while (i < 2 && i + childIndex < heapSize) {
-		         if (heapArray[i + childIndex] > maxValue) {
+		         if (heapArray[i + childIndex].compareTo(maxValue) == 1) {
 		            maxValue = heapArray[i + childIndex];
 		            maxIndex = i + childIndex;
 		         }
@@ -76,7 +76,7 @@ public class ChildHeap {
 		      }
 		      else {
 		         // Swap heapArray[nodeIndex] and heapArray[maxIndex]
-		         int temp = heapArray[nodeIndex];
+		         Child temp = heapArray[nodeIndex];
 		         heapArray[nodeIndex] = heapArray[maxIndex];
 		         heapArray[maxIndex] = temp;
 		               
@@ -87,26 +87,27 @@ public class ChildHeap {
 		   }
 		}
 	   
-	   public void insert(int value) {
+	   public void insert(Child ch) {
 		   // Resize if needed
 		   if (heapSize == heapArray.length) {
 		      resizeArray();
 		   }
 		      
 		   // Add the new value to the end of the array
-		   heapArray[heapSize] = value;
+		   heapArray[heapSize] = ch;
 		   heapSize++;
 		        
 		   // Percolate up from the last index to restore heap property.
 		   percolateUp(heapSize - 1);
 		}
-		   
-		public int remove() {
+	   
+	   
+		public Child remove() {
 		   // Save the max value from the root of the heap.
-		   int maxValue = heapArray[0];
+		   Child maxValue = heapArray[0];
 		       
 		   // Move the last item in the array into index 0.
-		   int replaceValue = ;
+		   Child replaceValue = heapArray[heapSize - 1];
 		   heapSize--;
 		   if (heapSize > 0) {
 		      heapArray[0] = replaceValue;

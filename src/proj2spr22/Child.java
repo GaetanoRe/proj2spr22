@@ -19,11 +19,25 @@ public class Child {
 	}
 	
 	public int getAge() {
-		int birthMonth;
-		int birthDay;
-		int birthYear;
-		int appMonth;
-		int appDay;
+		int age = 0;
+		String [] splitDateOB = dob.split("-");
+		String [] splitDateRec = dateRecieved.split("-");
+		int birthMonth = Integer.parseInt(splitDateOB[1]);
+		int birthDay = Integer.parseInt(splitDateOB[2]);
+		int birthYear = Integer.parseInt(splitDateOB[0]);
+		int appMonth = Integer.parseInt(splitDateRec[1]);
+		int appDay = Integer.parseInt(splitDateRec[2]);
+		int appYear = Integer.parseInt(splitDateRec[0]);
+		age = appYear - birthYear;
+		if(birthMonth < appMonth) {
+			--age;
+		}
+		else if(birthDay < appDay && birthMonth == appMonth) {
+			--age;
+		}
+		return age;
+		
+		
 		
 	}
 }
