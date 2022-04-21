@@ -37,7 +37,25 @@ public class Child {
 		}
 		return age;
 		
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	
+	public int compareTo(Child ch) {
+		if(this.getAge() > ch.getAge()) 
+			return 1;
+		else if(this.getAge() < ch.getAge())
+			return -1;
+		else 
+			return 0;
 		
 		
+	}
+	public String toString() {
+		String str = "Name: " + name + "\n" + "Date of Birth: " + dob + "\n" + "Date of Registration: " + "\n";
+		return str;
 	}
 }
