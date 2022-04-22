@@ -120,6 +120,15 @@ public class ChildHeap {
 		   return maxValue;
 		}
 		
+		public String toString() {
+			String str = "";
+			for(int i = 0; i < heapArray.length; i++) {
+				str += heapArray[i].toString();
+ 			}
+			
+			return str;
+		}
+		
 		
 	   
 	   
